@@ -30,7 +30,7 @@ namespace TDDMicroExercises.TelemetrySystem.Tests
             var teleDiagnostic = new TelemetryDiagnosticControls();
             Assert.AreEqual(string.Empty, teleDiagnostic.DiagnosticInfo);
             teleDiagnostic.CheckTransmission();
-            var expected = TelemetryClient.DiagnosticMessage;
+            var expected = TelemetryClient.DiagnosticResponse;
             var result = teleDiagnostic.DiagnosticInfo;
             Assert.AreEqual(expected, result);
         }
@@ -85,7 +85,7 @@ namespace TDDMicroExercises.TelemetrySystem.Tests
         }
         #endregion
 
-        #region Diagnostic message
+        #region Send diagnostic message and receive response
         [TestMethod]
         public void SendDiagnosticMessageSetDiagnosticMessageJustSentToTrueAndSetsDiagnosticMessageJustSentBackToFalse()
         {
