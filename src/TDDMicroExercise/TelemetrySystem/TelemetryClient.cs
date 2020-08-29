@@ -14,8 +14,8 @@ namespace TDDMicroExercises.TelemetrySystem
 		private bool _onlineStatus;
 		private bool _diagnosticMessageJustSent = false;
 
-        private readonly Random _connectionEventsSimulator = new Random();
-        private readonly Random _randomMessageSimulator = new Random();
+        private readonly Random _connectionEventsSimulator = new Random(2020);
+        private readonly Random _randomMessageSimulator = new Random(2020);
 
 		public bool OnlineStatus
 		{
