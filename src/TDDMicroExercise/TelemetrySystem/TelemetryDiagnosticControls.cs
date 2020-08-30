@@ -40,6 +40,16 @@ namespace TDDMicroExercises.TelemetrySystem
         {
             DiagnosticInfo = string.Empty;
 
+            Reconnect();
+
+            _telemetryClient.Send(TelemetryClient.DiagnosticMessage);
+            DiagnosticInfo = _telemetryClient.Receive();
+        }
+
+        /// <summary>Reconnects the connection.</summary>
+        /// <exception cref="Exception">Unable to connect.</exception>
+        private void Reconnect()
+        {
             _telemetryClient.Disconnect();
 
             int retryLeft = RetryCount;
@@ -48,14 +58,11 @@ namespace TDDMicroExercises.TelemetrySystem
                 _telemetryClient.Connect(DiagnosticChannelConnectionString);
                 retryLeft--;
             }
-             
-            if(_telemetryClient.OnlineStatus == false)
+
+            if (_telemetryClient.OnlineStatus == false)
             {
                 throw new Exception("Unable to connect.");
             }
-
-            _telemetryClient.Send(TelemetryClient.DiagnosticMessage);
-            DiagnosticInfo = _telemetryClient.Receive();
         }
     }
 }

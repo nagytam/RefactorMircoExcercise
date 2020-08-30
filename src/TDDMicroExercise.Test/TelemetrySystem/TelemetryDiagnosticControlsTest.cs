@@ -1,8 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
-using System.Linq;
-using TDDMicroExercise.Test.TelemetrySystem;
 
 namespace TDDMicroExercises.TelemetrySystem.Tests
 {
@@ -14,7 +12,6 @@ namespace TDDMicroExercises.TelemetrySystem.Tests
         public void CheckTransmission()
         {
             var mockTelemetryClient = new Mock<ITelemetryClient>();
-            var isOnline = false;
             var isDisconnected = false;
             var isConnected = false;
             var usedConnectionString = string.Empty;
@@ -47,22 +44,12 @@ namespace TDDMicroExercises.TelemetrySystem.Tests
         public void CheckTransmissionWithRetryCountReachedThrowsException()
         {
             var mockTelemetryClient = new Mock<ITelemetryClient>();
-            var isOnline = false;
-            var isDisconnected = false;
-            var isConnected = false;
-            var usedConnectionString = string.Empty;
-            var isSent = false;
-            var diagnosticMessage = string.Empty;
-            var isReceived = false;
-            var diagnosticInfo = string.Empty;
             mockTelemetryClient.SetupSequence(s => s.OnlineStatus).
                 Returns(false).
                 Returns(false).
                 Returns(false); // returns sequence { false, false, false }
-            mockTelemetryClient.Setup(s => s.Disconnect()).Callback(() => { isDisconnected = true; });
-            mockTelemetryClient.Setup(s => s.Connect(It.IsAny<string>())).Callback<string>(s => { isConnected = true; usedConnectionString = s; });
-            mockTelemetryClient.Setup(s => s.Send(It.IsAny<string>())).Callback<string>(s => { isSent = true; diagnosticMessage = s; });
-            mockTelemetryClient.Setup(s => s.Receive()).Callback(() => { isReceived = true; diagnosticInfo = "Received"; }).Returns("Received");
+            mockTelemetryClient.Setup(s => s.Disconnect());
+            mockTelemetryClient.Setup(s => s.Connect(It.IsAny<string>()));
 
             var telemetryDiagnosticControls = new TelemetryDiagnosticControls(mockTelemetryClient.Object);
             telemetryDiagnosticControls.CheckTransmission();
