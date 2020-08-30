@@ -7,7 +7,8 @@ namespace TDDMicroExercises.TelemetrySystem
     public class TelemetryDiagnosticControls
     {
         #region Private members
-        private const string DiagnosticChannelConnectionString = "*111#";        
+        private const string DiagnosticChannelConnectionString = "*111#";
+        private const int RetryCount = 3;
         private readonly ITelemetryClient _telemetryClient;
         #endregion
 
@@ -41,11 +42,11 @@ namespace TDDMicroExercises.TelemetrySystem
 
             _telemetryClient.Disconnect();
 
-            int retryLeft = 3;
+            int retryLeft = RetryCount;
             while (_telemetryClient.OnlineStatus == false && retryLeft > 0)
             {
                 _telemetryClient.Connect(DiagnosticChannelConnectionString);
-                retryLeft -= 1;
+                retryLeft--;
             }
              
             if(_telemetryClient.OnlineStatus == false)
