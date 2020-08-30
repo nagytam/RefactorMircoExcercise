@@ -6,7 +6,7 @@ namespace TDDMicroExercises.TelemetrySystem
     // The communication with the server is simulated in this implementation.
     // Because the focus of the exercise is on the other class.
     //    
-    public class TelemetryClient
+    public class TelemetryClient : ITelemetryClient
     {
         #region Public constants
         /// <summary>The diagnostic message</summary>

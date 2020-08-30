@@ -8,18 +8,30 @@ namespace TDDMicroExercises.TelemetrySystem
     {
         #region Private members
         private const string DiagnosticChannelConnectionString = "*111#";        
-        private readonly TelemetryClient _telemetryClient;
+        private readonly ITelemetryClient _telemetryClient;
         #endregion
 
         #region Public properties
         public string DiagnosticInfo { get; set; } = string.Empty;
         #endregion
 
+        #region Constructors
         /// <summary>Initializes a new instance of the <a onclick="return false;" href="TelemetryDiagnosticControls" originaltag="see">TelemetryDiagnosticControls</a> class.</summary>
         public TelemetryDiagnosticControls()
         {
             _telemetryClient = new TelemetryClient();
         }
+
+        public TelemetryDiagnosticControls(ITelemetryClient telemetryClient)
+        {
+            if (telemetryClient == null)
+            {
+                throw new ArgumentNullException(nameof(telemetryClient));
+            }
+            
+            _telemetryClient = telemetryClient;
+        }
+        #endregion
 
         /// <summary>Checks the transmission.</summary>
         /// <exception cref="Exception">Unable to connect.</exception>

@@ -66,6 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TelemetrySystem\TelemetryClientForTesting.cs" />
     <Compile Include="TelemetrySystem\TelemetryDiagnosticControlsTest.cs" />
+    <Compile Include="TelemetrySystem\TelemetryClientTest.cs" />
     <Compile Include="TirePressureMonitoringSystem\AlarmClientTest.cs" />
     <Compile Include="TirePressureMonitoringSystem\SensorTest.cs" />
   </ItemGroup>
