@@ -8,7 +8,7 @@ namespace TDDMicroExercise.Test.TirePressureMonitoringSystem
     {
         #region Simulating existing client behaviour
         [TestMethod]
-        public void SensorClient()
+        public void SimulateSensorClient()
         {
             var sensor = new Sensor();
 
@@ -25,7 +25,7 @@ namespace TDDMicroExercise.Test.TirePressureMonitoringSystem
 
         #region Check properties of pressure values
         [TestMethod]
-        public void PressureValuesOffset()
+        public void PopNextPressurePsiValueReturnsOffsetValues()
         {
             const int MaxValues = 100000;
             var sensor = new Sensor();

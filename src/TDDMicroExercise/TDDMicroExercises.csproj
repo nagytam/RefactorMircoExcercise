@@ -51,7 +51,6 @@
     <Compile Include="TirePressureMonitoringSystem.SomeDependencies\ASensorClient.cs" />
     <Compile Include="TirePressureMonitoringSystem.SomeDependencies\AnAlarmClient1.cs" />
     <Compile Include="TirePressureMonitoringSystem.SomeDependencies\AnAlarmClient3.cs" />
-    <Compile Include="TirePressureMonitoringSystem.SomeDependencies\AnAlarmClient2.cs" />
     <Compile Include="UnicodeFileToHtmlTextConverter.SomeDependencies\aTextConverterClient1.cs" />
     <Compile Include="UnicodeFileToHtmlTextConverter.SomeDependencies\aTextConverterClient2.cs" />
     <Compile Include="UnicodeFileToHtmlTextConverter.SomeDependencies\aTextConverterClient3.cs" />
