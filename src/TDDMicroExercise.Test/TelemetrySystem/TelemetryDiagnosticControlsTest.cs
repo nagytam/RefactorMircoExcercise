@@ -5,6 +5,7 @@ using TDDMicroExercise.Test.TelemetrySystem;
 
 namespace TDDMicroExercises.TelemetrySystem.Tests
 {
+    /// <summary>Telemetry system tests</summary>
     [TestClass]
     public class TelemetrySystemTest
     {

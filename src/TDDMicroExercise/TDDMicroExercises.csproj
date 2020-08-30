@@ -60,9 +60,7 @@
     <Compile Include="TurnTicketDispenser.SomeDependencies\TicketDispenserClient.cs" />
     <Compile Include="TurnTicketDispenser.SomeDependencies\TurnTicketAndSequenceClient.cs" />
     <Compile Include="TelemetrySystem.SomeDependencies\TelemetryClientClient.cs" />
-    <Compile Include="TelemetrySystem.SomeDependencies\TelemetryDiagnosticControlsClient1.cs" />
-    <Compile Include="TelemetrySystem.SomeDependencies\TelemetryDiagnosticControlsClient2.cs" />
-    <Compile Include="TelemetrySystem.SomeDependencies\TelemetryDiagnosticControlsClient3.cs" />
+    <Compile Include="TelemetrySystem.SomeDependencies\TelemetryDiagnosticControlsClient.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

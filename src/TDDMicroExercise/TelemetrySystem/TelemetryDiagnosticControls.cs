@@ -3,27 +3,29 @@ using System;
 
 namespace TDDMicroExercises.TelemetrySystem
 {
+    /// <summary>The telemetry diagnostics control</summary>
     public class TelemetryDiagnosticControls
     {
-        private const string DiagnosticChannelConnectionString = "*111#";
-        
+        #region Private members
+        private const string DiagnosticChannelConnectionString = "*111#";        
         private readonly TelemetryClient _telemetryClient;
-        private string _diagnosticInfo = string.Empty;
+        #endregion
 
+        #region Public properties
+        public string DiagnosticInfo { get; set; } = string.Empty;
+        #endregion
+
+        /// <summary>Initializes a new instance of the <a onclick="return false;" href="TelemetryDiagnosticControls" originaltag="see">TelemetryDiagnosticControls</a> class.</summary>
         public TelemetryDiagnosticControls()
         {
             _telemetryClient = new TelemetryClient();
         }
 
-        public string DiagnosticInfo
-        {
-            get { return _diagnosticInfo; }
-            set { _diagnosticInfo = value; }
-        }
-
+        /// <summary>Checks the transmission.</summary>
+        /// <exception cref="Exception">Unable to connect.</exception>
         public void CheckTransmission()
         {
-            _diagnosticInfo = string.Empty;
+            DiagnosticInfo = string.Empty;
 
             _telemetryClient.Disconnect();
 
@@ -40,7 +42,7 @@ namespace TDDMicroExercises.TelemetrySystem
             }
 
             _telemetryClient.Send(TelemetryClient.DiagnosticMessage);
-            _diagnosticInfo = _telemetryClient.Receive();
+            DiagnosticInfo = _telemetryClient.Receive();
         }
     }
 }

@@ -5,10 +5,10 @@ namespace TDDMicroExercises.TelemetrySystem
     //
     // The communication with the server is simulated in this implementation.
     // Because the focus of the exercise is on the other class.
-    //
-    
+    //    
     public class TelemetryClient
     {
+        #region Public constants
         /// <summary>The diagnostic message</summary>
         public const string DiagnosticMessage = "AT#UD";
         /// <summary>The diagnostic response</summary>
@@ -26,6 +26,7 @@ namespace TDDMicroExercises.TelemetrySystem
                             + "BEP Test.................... -5\r\n"
                             + "Local Rtrn Count............ 00\r\n"
                             + "Remote Rtrn Count........... 00";
+        #endregion
 
         #region Private and protected members
         protected bool _diagnosticMessageJustSent = false;
