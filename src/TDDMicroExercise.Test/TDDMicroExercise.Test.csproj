@@ -69,6 +69,7 @@
     <Compile Include="TelemetrySystem\TelemetryClientTest.cs" />
     <Compile Include="TirePressureMonitoringSystem\AlarmClientTest.cs" />
     <Compile Include="TirePressureMonitoringSystem\SensorTest.cs" />
+    <Compile Include="TurnTicketDispenser\TicketDispenserTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

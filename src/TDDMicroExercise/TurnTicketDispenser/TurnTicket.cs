@@ -1,18 +1,19 @@
 namespace TDDMicroExercises.TurnTicketDispenser
 {
+    /// <summary>Turn ticket</summary>
     public class TurnTicket
     {
-        private readonly int _turnNumber;
+        /// <summary>Gets the turn number.</summary>
+        /// <value>The turn number.</value>
+        public int TurnNumber { get; }
 
+        /// <summary>Initializes a new instance of the <a onclick="return false;" href="TurnTicket" originaltag="see">TurnTicket</a> class.</summary>
+        /// <param name="turnNumber">The turn number.</param>
         public TurnTicket(int turnNumber)
         {
-            _turnNumber = turnNumber;
+            TurnNumber = turnNumber;
         }
 
-        public int TurnNumber
-        {
-            get { return _turnNumber; }
-        }
 
     }
 }
